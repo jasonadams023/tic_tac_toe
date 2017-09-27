@@ -1,4 +1,4 @@
-import { calculateWinner, generateBoard } from '../../app/components/game-functions.js';
+import { calculateWinner, generateBoard } from '../../../app/components/game-functions.js';
 
 describe('calculateWinner', () => {
     let squares;

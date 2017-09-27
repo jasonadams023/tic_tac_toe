@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Square displays X when value is X 1`] = `
+<Square
+  onClick={[Function]}
+  value="X"
+>
+  <button
+    className="square"
+    onClick={[Function]}
+  >
+    X
+  </button>
+</Square>
+`;
+
+exports[`Square is empty when value is null 1`] = `
+<Square
+  onClick={[Function]}
+  value={null}
+>
+  <button
+    className="square"
+    onClick={[Function]}
+  />
+</Square>
+`;

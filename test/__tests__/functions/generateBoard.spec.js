@@ -1,4 +1,4 @@
-import { generateBoard } from '../../app/components/game-functions.js';
+import { generateBoard } from '../../../app/components/game-functions.js';
 
 describe('generateBoard', () => {
     it('returns empty array when given a size of 0', () => {
