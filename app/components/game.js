@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Board from './board.js';
-import { calculateWinner, calculateTie, generateBoard } from './game-functions.js';
+import { calculateWinner, calculateBoardFull, generateBoard } from './game-functions.js';
 
 export default class Game extends React.Component {
   constructor() {
@@ -48,7 +48,7 @@ export default class Game extends React.Component {
 
       if (winner) {
           return 'Winner is: ' + winner;
-      } else if (calculateTie(squares)) {
+      } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
           return 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');

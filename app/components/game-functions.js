@@ -59,7 +59,7 @@ export function calculateWinner(squares) {
     return null;
 }
 
-export function calculateTie(squares) {
+export function calculateBoardFull(squares) {
     for (let x = 0; x < squares.length; x++) {
         for (let y = 0; y < squares[x].length; y++) {
             if (squares[x][y] === null) {
