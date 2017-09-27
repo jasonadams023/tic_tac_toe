@@ -1,5 +1,5 @@
 import React from 'react';
-import Square from '../../../app/components/square.js';
+import Square from '../../../app/components/square';
 
 describe('Square', () => {
     it('is empty when value is null', () => {

@@ -3,7 +3,7 @@ import { calculateWinner, generateBoard } from '../../../app/components/game-fun
 describe('calculateWinner', () => {
     let squares;
     let x = 'X';
-    let y = 'Y';
+    let o = 'O';
 
     beforeEach(() => {
         squares = generateBoard(3);
@@ -23,12 +23,12 @@ describe('calculateWinner', () => {
     });
 
     it('checks for vertical wins', () => {
-        squares[0][0] = y;
-        squares[1][0] = y;
-        squares[2][0] = y;
+        squares[0][0] = o;
+        squares[1][0] = o;
+        squares[2][0] = o;
 
         expect(calculateWinner(squares)).toBeTruthy();
-        expect(calculateWinner(squares)).toBe(y);
+        expect(calculateWinner(squares)).toBe(o);
     });
 
     it('checks for diagonal wins', () => {

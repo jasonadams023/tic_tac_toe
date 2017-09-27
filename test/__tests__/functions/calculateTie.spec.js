@@ -3,7 +3,7 @@ import { calculateBoardFull, generateBoard } from '../../../app/components/game-
 describe('calculateTie', () => {
     let squares;
     let x = 'X';
-    let y = 'Y';
+    let o = 'O';
 
     beforeEach(() => {
         squares = generateBoard(3);
@@ -15,14 +15,14 @@ describe('calculateTie', () => {
 
     it('returns true if the board is full', () => {
         squares[0][0] = x;
-        squares[0][1] = x;
+        squares[0][1] = o;
         squares[0][2] = x;
         squares[1][0] = x;
-        squares[1][1] = x;
+        squares[1][1] = o;
         squares[1][2] = x;
-        squares[2][0] = x;
+        squares[2][0] = o;
         squares[2][1] = x;
-        squares[2][2] = x;
+        squares[2][2] = o;
 
         expect(calculateBoardFull(squares)).toBe(true);
     });
