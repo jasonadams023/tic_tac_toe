@@ -31,7 +31,6 @@ describe('Game', () => {
         );
 
         wrapper.setState( { history: [{ squares: finalSquares }] } );
-        wrapper.update();
 
         expect(wrapper).toMatchSnapshot();
     });
