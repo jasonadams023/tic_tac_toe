@@ -1,4 +1,4 @@
-import { calculateBoardFull, generateBoard } from '../../../app/components/game-functions.js';
+import { calculateBoardFull, generateBoard } from '../../../app/components/game-functions';
 
 describe('calculateTie', () => {
     let squares;
