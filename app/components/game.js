@@ -1,23 +1,14 @@
 import React from 'react';
 
 import Board from './board.js';
-import { calculateWinner, calculateTie } from './game-functions.js';
+import { calculateWinner, calculateTie, generateBoard } from './game-functions.js';
 
 export default class Game extends React.Component {
   constructor() {
     super();
 
-    const gridSize = 3;
-    let rows = [];
-    let board = [];
-
-    for (let i = 0; i < gridSize; i++) {
-        rows.push(Array(gridSize).fill(null));
-        board.push(rows[i]);
-    }
-
     this.state = {
-        history: [ {squares: board} ],
+        history: [ {squares: generateBoard(3)} ],
         xIsNext: true,
         stepNumber: 0
     };

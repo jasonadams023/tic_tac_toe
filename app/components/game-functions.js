@@ -70,3 +70,15 @@ export function calculateTie(squares) {
 
     return true;
 }
+
+export function generateBoard(size) {
+    let rows = [];
+    let board = [];
+
+    for (let i = 0; i < size; i++) {
+        rows.push(Array(size).fill(null));
+        board.push(rows[i]);
+    }
+
+    return board;
+}
