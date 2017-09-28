@@ -33,7 +33,9 @@ exports[`Game displays a cat's game 1`] = `
   <div
     className="game-info"
   >
-    <div>
+    <div
+      id="status"
+    >
       Cat's Game
     </div>
     <ol>
@@ -41,6 +43,7 @@ exports[`Game displays a cat's game 1`] = `
         key="0"
       >
         <a
+          className="moves"
           href="#"
           onClick={[Function]}
         >
@@ -87,7 +90,9 @@ exports[`Game displays a new game 1`] = `
   <div
     className="game-info"
   >
-    <div>
+    <div
+      id="status"
+    >
       Next player: X
     </div>
     <ol>
@@ -95,6 +100,7 @@ exports[`Game displays a new game 1`] = `
         key="0"
       >
         <a
+          className="moves"
           href="#"
           onClick={[Function]}
         >
