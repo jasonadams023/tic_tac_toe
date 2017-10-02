@@ -7,7 +7,7 @@ describe('calculateWinner', () => {
 
     beforeEach(() => {
         squares = generateBoard(3);
-    })
+    });
 
     it('returns null if there is no winner', () => {
         expect(calculateWinner(squares)).toBeNull();
