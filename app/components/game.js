@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Board from './board.js';
-import { calculateWinner, calculateBoardFull, generateBoard } from './game-functions.js';
+import { calculateWinner, calculateBoardFull, generateBoard, xIsNext } from './game-functions.js';
 
 export default class Game extends React.Component {
   constructor() {
@@ -9,7 +9,6 @@ export default class Game extends React.Component {
 
     this.state = {
         history: [ {squares: generateBoard(3)} ],
-        xIsNext: true,
         stepNumber: 0
     };
   }
@@ -27,11 +26,10 @@ export default class Game extends React.Component {
         return;
     }
 
-    squares[x][y] = this.state.xIsNext ? 'X' : 'O';
+    squares[x][y] = xIsNext(this.state.stepNumber) ? 'X' : 'O';
 
     this.setState({
         history: history.concat([{ squares: squares }]),
-        xIsNext: !this.state.xIsNext,
         stepNumber: history.length
     });
   }
@@ -39,7 +37,6 @@ export default class Game extends React.Component {
   jumpTo(step) {
     this.setState({
         stepNumber: step,
-        xIsNext: (step % 2) == 0
     });
   }
 
@@ -51,7 +48,7 @@ export default class Game extends React.Component {
       } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
-          return 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+          return 'Next player: ' + (xIsNext(this.state.stepNumber) ? 'X' : 'O');
       }
   }
 

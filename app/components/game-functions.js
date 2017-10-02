@@ -82,3 +82,7 @@ export function generateBoard(size) {
 
     return board;
 }
+
+export function xIsNext(step) {
+    return (step % 2) === 0;
+}
