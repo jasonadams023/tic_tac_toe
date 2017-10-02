@@ -13,7 +13,6 @@ export function calculateWinner(squares) {
         }
     }
 
-
     ////check columns
     for (let y = 0; y < squares[0].length; y++) {
         let winner = squares[0][y];
@@ -83,6 +82,6 @@ export function generateBoard(size) {
     return board;
 }
 
-export function xIsNext(stepNumber) {
-    return (stepNumber % 2) === 0;
+export function nextPlayer(stepNumber) {
+    return (stepNumber % 2) === 0 ? 'X' : 'O';
 }
