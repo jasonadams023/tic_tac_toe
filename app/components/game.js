@@ -2,42 +2,22 @@ import React from 'react';
 
 import Board from './board.js';
 import { calculateWinner, calculateBoardFull, generateBoard, nextPlayer } from './game-functions.js';
+import { store } from '../redux/store';
 
 export default class Game extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-        history: [ {squares: generateBoard(3)} ],
-        stepNumber: 0
-    };
+    this.state = store.getState();
   }
 
   handleClick(x, y) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
-    let squares = [];
-
-    for (let x = 0; x < current.squares.length; x++) {
-        squares.push(current.squares[x].slice());
-    }
-
-    if (calculateWinner(squares) || squares[x][y]) {
-        return;
-    }
-
-    squares[x][y] = nextPlayer(this.state.stepNumber);
-
-    this.setState({
-        history: history.concat([{ squares: squares }]),
-        stepNumber: history.length
-    });
+    store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
+    this.setState(store.getState());
   }
 
   jumpTo(step) {
-    this.setState({
-        stepNumber: step,
-    });
+    store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
+    this.setState(store.getState());
   }
 
   status(squares) {
