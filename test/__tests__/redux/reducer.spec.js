@@ -53,6 +53,5 @@ describe('Reducer', () => {
         const action = {type: "PLAYER_MOVE", x: 0, y: 0};
 
         expect(reducer(beforeState, action)).toEqual(beforeState);
-
     });
 });
