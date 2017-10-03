@@ -5,9 +5,10 @@ State:
 */
 
 import { calculateWinner, generateBoard, nextPlayer } from '../components/game-functions.js';
+import { stateUndefined } from './helpers.js';
 
 export function reducer (state, action) {
-    if (typeof state === 'undefined') {
+    if (stateUndefined(state)) {
         state = {
             history: [ {squares: generateBoard(3)} ],
             stepNumber: 0
