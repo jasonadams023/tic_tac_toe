@@ -1,11 +1,7 @@
 import { calculateWinner, generateBoard, nextPlayer } from '../components/game-functions.js';
-import { stateUndefined } from './helpers';
+import { defaultState } from './helpers';
 
-export function historyReducer(state, action) {
-    if (stateUndefined(state)) {
-        state = { history: [{squares: generateBoard(3)}], stepNumber: 0 };
-    }
-
+export function historyReducer(state = defaultState(), action) {
     if (action.type === "PLAYER_MOVE") {
             const oldHistory = state.history.slice();
             const currentMove = oldHistory[oldHistory.length - 1];
