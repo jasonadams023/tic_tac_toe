@@ -5,33 +5,17 @@ State:
 */
 
 import { calculateWinner, generateBoard, nextPlayer } from '../components/game-functions.js';
+import { historyReducer } from './historyReducer';
+import { stepReducer } from './stepReducer';
 import { defaultState } from './helpers.js';
 
 export function reducer (state = defaultState(), action) {
-    if (action.type === "PLAYER_MOVE") {
-        const oldHistory = state.history.slice();
-        const currentMove = oldHistory[oldHistory.length - 1];
-        let squares = [];
-        const x = action.x;
-        const y = action.y;
+    const reducers = [];
+    reducers.push(historyReducer);
+    reducers.push(stepReducer);
 
-        for (let i = 0; i < currentMove.squares.length; i++) {
-            squares.push(currentMove.squares[i].slice());
-        }
-
-        if (calculateWinner(squares) || squares[x][y]) {
-            return state;
-        }
-
-        squares[x][y] = nextPlayer(state.stepNumber);
-
-        const newHistory = oldHistory.concat([{ squares: squares }]);
-        let nextStep = state.stepNumber + 1;
-
-        return Object.assign({}, state, {history: newHistory, stepNumber: nextStep});
-    }
-    if (action.type === "CHANGE_STEP") {
-        return Object.assign({}, state, {stepNumber: action.stepNumber});
+    for (let i = 0; i < reducers.length; i++) {
+        state = reducers[i](state, action);
     }
 
     return state;

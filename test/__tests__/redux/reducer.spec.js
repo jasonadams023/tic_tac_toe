@@ -12,17 +12,18 @@ describe('Reducer', () => {
     });
 
     it('changes the step number', () => {
-        const action = {type: "CHANGE_STEP", stepNumber: 1};
-        const afterState = {
-            history: [ {squares: generateBoard(3)} ],
-            stepNumber: 1
-        };
+        const stepAction = {type: "CHANGE_STEP", stepNumber: 1};
+        let moveAction = { type: "PLAYER_MOVE", x: 0, y: 0 };
+        let state;
 
-        expect(reducer(beforeState, action)).toEqual(afterState);
-        expect(beforeState).toEqual({
-                                        history: [ {squares: generateBoard(3)} ],
-                                        stepNumber: 0
-                                    });
+        state = reducer(state, moveAction);
+        moveAction.x = 1;
+        state = reducer(state, moveAction);
+        moveAction.x = 2;
+
+        const expectedState = Object.assign({}, state, { stepNumber: 1 });
+
+        expect(reducer(state, stepAction)).toEqual(expectedState);
     });
 
     it('updates the game state when a player makes a move', () => {
