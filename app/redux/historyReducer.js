@@ -3,7 +3,7 @@ import { defaultState } from './helpers';
 
 export function historyReducer(state = defaultState(), action) {
     if (action.type === "PLAYER_MOVE") {
-            const oldHistory = state.history.slice();
+            const oldHistory = state.history.slice(0, state.stepNumber + 1);
             const currentMove = oldHistory[oldHistory.length - 1];
             let squares = [];
             const x = action.x;

@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Game from './components/game.js';
+import { store } from './redux/store';
 
 // ========================================
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+const render = () => {
+    ReactDOM.render(
+      <Game
+        store={ store }
+      />,
+      document.getElementById('root')
+    );
+};
+
+store.subscribe(render);
+render();

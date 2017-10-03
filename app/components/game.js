@@ -7,17 +7,14 @@ import { store } from '../redux/store';
 export default class Game extends React.Component {
   constructor() {
     super();
-    this.state = store.getState();
   }
 
   handleClick(x, y) {
-    store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
-    this.setState(store.getState());
+    this.props.store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
   }
 
   jumpTo(step) {
-    store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
-    this.setState(store.getState());
+    this.props.store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
   }
 
   status(squares) {
@@ -28,7 +25,7 @@ export default class Game extends React.Component {
       } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
-          return 'Next player: ' + nextPlayer(this.state.stepNumber);
+          return 'Next player: ' + nextPlayer(this.props.store.getState().stepNumber);
       }
   }
 
@@ -45,9 +42,11 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const history = this.props.store.getState().history;
+    const current = history[this.props.store.getState().stepNumber];
     const moves = this.getMoves(history);
+
+    console.log(this.props);
 
     return (
       <div className="game">

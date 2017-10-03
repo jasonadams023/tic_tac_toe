@@ -1,11 +1,12 @@
 import React from 'react';
 import Game from '../../../app/components/game';
 import { generateBoard } from '../../../app/components/game-functions';
+import { store } from '../../../app/redux/store';
 
 describe('Game', () => {
     it('displays a new game', () => {
         const wrapper = shallow (
-            < Game />
+            < Game store={ store }/>
         );
 
         expect(wrapper).toMatchSnapshot();
@@ -15,22 +16,31 @@ describe('Game', () => {
         let x = 'X';
         let o = 'O';
 
-        let finalSquares = generateBoard(3);
-        finalSquares[0][0] = x;
-        finalSquares[0][1] = o;
-        finalSquares[0][2] = x;
-        finalSquares[1][0] = x;
-        finalSquares[1][1] = o;
-        finalSquares[1][2] = x;
-        finalSquares[2][0] = o;
-        finalSquares[2][1] = x;
-        finalSquares[2][2] = o;
+        let action = { type: "PLAYER_MOVE", x: 0, y: 0 };
+        store.dispatch(action);
+        action.y = 1;
+        store.dispatch(action);
+        action.y = 2;
+        store.dispatch(action);
+        action.y = 1;
+        action.x = 1;
+        store.dispatch(action);
+        action.y = 0;
+        store.dispatch(action);
+        action.x = 2;
+        store.dispatch(action);
+        action.y = 2;
+        action.x = 1;
+        store.dispatch(action);
+        action.x = 2;
+        action.y = 2;
+        store.dispatch(action);
+        action.y = 1;
+        store.dispatch(action);
 
         const wrapper = shallow (
-            < Game />
+            < Game store={ store } />
         );
-
-        wrapper.setState( { history: [{ squares: finalSquares }] } );
 
         expect(wrapper).toMatchSnapshot();
     });

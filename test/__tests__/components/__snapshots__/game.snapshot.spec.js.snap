@@ -52,6 +52,123 @@ exports[`Game displays a cat's game 1`] = `
            
         </a>
       </li>
+      <li
+        key="1"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #1
+           
+        </a>
+      </li>
+      <li
+        key="2"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #2
+           
+        </a>
+      </li>
+      <li
+        key="3"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #3
+           
+        </a>
+      </li>
+      <li
+        key="4"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #4
+           
+        </a>
+      </li>
+      <li
+        key="5"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #5
+           
+        </a>
+      </li>
+      <li
+        key="6"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #6
+           
+        </a>
+      </li>
+      <li
+        key="7"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #7
+           
+        </a>
+      </li>
+      <li
+        key="8"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #8
+           
+        </a>
+      </li>
+      <li
+        key="9"
+      >
+        <a
+          className="moves"
+          href="#"
+          onClick={[Function]}
+        >
+           
+          Move #9
+           
+        </a>
+      </li>
     </ol>
   </div>
 </div>
