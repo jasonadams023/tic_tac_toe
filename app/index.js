@@ -9,9 +9,7 @@ import { store } from './redux/store';
 
 const render = () => {
     ReactDOM.render(
-      <Game
-        { ...store.getState() }
-      />,
+      <Game />,
       document.getElementById('root')
     );
 };

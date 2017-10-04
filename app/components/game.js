@@ -3,8 +3,9 @@ import React from 'react';
 import Board from './board.js';
 import { calculateWinner, calculateBoardFull, generateBoard, nextPlayer } from './game-functions.js';
 import { store } from '../redux/store';
+import SubscribedComponent from '../redux/subscribedComponent';
 
-export default class Game extends React.Component {
+export default class Game extends SubscribedComponent {
   constructor() {
     super();
   }
@@ -25,8 +26,7 @@ export default class Game extends React.Component {
       } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
-//          return 'Next player: ' + nextPlayer(this.props.store.stepNumber);
-          return 'Next player: ' + nextPlayer(this.props.stepNumber);
+          return 'Next player: ' + nextPlayer(store.getState().stepNumber);
       }
   }
 
@@ -43,10 +43,9 @@ export default class Game extends React.Component {
   }
 
   render() {
-//    const history = this.props.store.history;
-    const history = this.props.history;
-//    const current = history[this.props.store.stepNumber];
-    const current = history[this.props.stepNumber];
+    const state = store.getState();
+    const history = state.history;
+    const current = history[state.stepNumber];
     const moves = this.getMoves(history);
 
     return (
