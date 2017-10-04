@@ -3,9 +3,6 @@ import Game from '../../../app/components/game';
 import { generateBoard } from '../../../app/components/game-functions';
 import { store } from '../../../app/redux/store';
 
-
-import PropTypes from 'prop-types';
-
 describe('Game', () => {
     it ('initializes a new game', () => {
         const board = generateBoard(3);
