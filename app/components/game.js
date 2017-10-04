@@ -25,7 +25,8 @@ export default class Game extends React.Component {
       } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
-          return 'Next player: ' + nextPlayer(this.props.store.stepNumber);
+//          return 'Next player: ' + nextPlayer(this.props.store.stepNumber);
+          return 'Next player: ' + nextPlayer(this.props.stepNumber);
       }
   }
 
@@ -42,8 +43,10 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const history = this.props.store.history;
-    const current = history[this.props.store.stepNumber];
+//    const history = this.props.store.history;
+    const history = this.props.history;
+//    const current = history[this.props.store.stepNumber];
+    const current = history[this.props.stepNumber];
     const moves = this.getMoves(history);
 
     return (

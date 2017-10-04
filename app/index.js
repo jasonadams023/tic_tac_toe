@@ -10,7 +10,7 @@ import { store } from './redux/store';
 const render = () => {
     ReactDOM.render(
       <Game
-        store={ store.getState() }
+        { ...store.getState() }
       />,
       document.getElementById('root')
     );

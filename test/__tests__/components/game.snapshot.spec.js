@@ -6,7 +6,7 @@ import { store } from '../../../app/redux/store';
 describe('Game', () => {
     it('displays a new game', () => {
         const wrapper = shallow (
-            < Game store={ store.getState() }/>
+            < Game { ...store.getState() }/>
         );
 
         expect(wrapper).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('Game', () => {
         store.dispatch(action);
 
         const wrapper = shallow (
-            < Game store={ store.getState() } />
+            < Game { ...store.getState() } />
         );
 
         expect(wrapper).toMatchSnapshot();
