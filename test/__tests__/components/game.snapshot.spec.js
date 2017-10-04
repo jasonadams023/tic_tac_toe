@@ -6,16 +6,13 @@ import { store } from '../../../app/redux/store';
 describe('Game', () => {
     it('displays a new game', () => {
         const wrapper = shallow (
-            < Game store={ store }/>
+            < Game store={ store.getState() }/>
         );
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('displays a cat\'s game', () => {
-        let x = 'X';
-        let o = 'O';
-
         let action = { type: "PLAYER_MOVE", x: 0, y: 0 };
         store.dispatch(action);
         action.y = 1;
@@ -39,10 +36,8 @@ describe('Game', () => {
         store.dispatch(action);
 
         const wrapper = shallow (
-            < Game store={ store } />
+            < Game store={ store.getState() } />
         );
-
-//        shallow
 
         expect(wrapper).toMatchSnapshot();
     });

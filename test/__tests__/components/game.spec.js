@@ -7,12 +7,12 @@ describe('Game', () => {
     it ('initializes a new game', () => {
         const board = generateBoard(3);
         const game = new Game();
-        game.props = {store: store};
+        game.props = {store: store.getState() };
         const wrapper = shallow ( game.render() );
 
         const moves = wrapper.find('.moves');
         const status = wrapper.find('#status').text();
-        const history = game.props.store.getState().history;
+        const history = game.props.store.history;
 
         expect(history).toEqual([ { squares: board } ]);
         expect(status).toBe('Next player: X');
@@ -21,19 +21,19 @@ describe('Game', () => {
 
     it ('can be played to completion', () => {
         let wrapper = mount (
-            < Game store={ store } />
+            < Game store={ store.getState() } />
         );
 
         const squares = wrapper.find('.square');
 
         squares.at(0).simulate('click');
-        wrapper.setProps({store: store });
+        wrapper.setProps({store: store.getState() });
         expect(squares.at(0).text()).toBe('X');
         expect(wrapper.find('.moves').length).toBe(2);
         expect(wrapper.find('#status').text()).toBe('Next player: O');
 
         squares.at(4).simulate('click');
-        wrapper.setProps({store: store });
+        wrapper.setProps({store: store.getState() });
         expect(squares.at(4).text()).toBe('O');
         expect(wrapper.find('.moves').length).toBe(3);
         expect(wrapper.find('#status').text()).toBe('Next player: X');
@@ -41,7 +41,7 @@ describe('Game', () => {
         squares.at(1).simulate('click');
         squares.at(5).simulate('click');
         squares.at(2).simulate('click');
-        wrapper.setProps({store: store });
+        wrapper.setProps({store: store.getState() });
 
         expect(wrapper.find('.moves').length).toBe(6);
         expect(wrapper.find('#status').text()).toBe('Winner is: X');

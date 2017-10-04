@@ -10,11 +10,11 @@ export default class Game extends React.Component {
   }
 
   handleClick(x, y) {
-    this.props.store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
+    store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
   }
 
   jumpTo(step) {
-    this.props.store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
+    store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
   }
 
   status(squares) {
@@ -25,7 +25,7 @@ export default class Game extends React.Component {
       } else if (calculateBoardFull(squares)) {
           return "Cat's Game";
       }else {
-          return 'Next player: ' + nextPlayer(this.props.store.getState().stepNumber);
+          return 'Next player: ' + nextPlayer(this.props.store.stepNumber);
       }
   }
 
@@ -42,8 +42,8 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const history = this.props.store.getState().history;
-    const current = history[this.props.store.getState().stepNumber];
+    const history = this.props.store.history;
+    const current = history[this.props.store.stepNumber];
     const moves = this.getMoves(history);
 
     return (
