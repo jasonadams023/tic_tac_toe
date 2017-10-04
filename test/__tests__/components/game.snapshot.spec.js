@@ -42,6 +42,8 @@ describe('Game', () => {
             < Game store={ store } />
         );
 
+//        shallow
+
         expect(wrapper).toMatchSnapshot();
     });
 });

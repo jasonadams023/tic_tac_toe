@@ -46,8 +46,6 @@ export default class Game extends React.Component {
     const current = history[this.props.store.getState().stepNumber];
     const moves = this.getMoves(history);
 
-    console.log(this.props);
-
     return (
       <div className="game">
         <div className="game-board">
