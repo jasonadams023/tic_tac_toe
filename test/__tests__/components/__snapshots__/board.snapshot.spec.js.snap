@@ -1,131 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Board displays 3x3 set of squares 1`] = `
-<div>
+<div
+  class="game-board"
+>
   <div
-    className="board-row"
-    key="0"
+    class="board-row"
   >
-    <Square
-      key="0-0"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="0-1"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="0-2"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
   </div>
   <div
-    className="board-row"
-    key="1"
+    class="board-row"
   >
-    <Square
-      key="1-0"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="1-1"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="1-2"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
   </div>
   <div
-    className="board-row"
-    key="2"
+    class="board-row"
   >
-    <Square
-      key="2-0"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="2-1"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
-    <Square
-      key="2-2"
-      onClick={[Function]}
-      value={null}
+    <button
+      class="square"
     />
   </div>
 </div>
 `;
 
 exports[`Board passes values of squares to squares 1`] = `
-<div>
+<div
+  class="game-board"
+>
   <div
-    className="board-row"
-    key="0"
+    class="board-row"
   >
-    <Square
-      key="0-0"
-      onClick={[Function]}
-      value="X"
-    />
-    <Square
-      key="0-1"
-      onClick={[Function]}
-      value="O"
-    />
-    <Square
-      key="0-2"
-      onClick={[Function]}
-      value="X"
-    />
+    <button
+      class="square"
+    >
+      X
+    </button>
+    <button
+      class="square"
+    >
+      O
+    </button>
+    <button
+      class="square"
+    >
+      X
+    </button>
   </div>
   <div
-    className="board-row"
-    key="1"
+    class="board-row"
   >
-    <Square
-      key="1-0"
-      onClick={[Function]}
-      value="X"
-    />
-    <Square
-      key="1-1"
-      onClick={[Function]}
-      value="O"
-    />
-    <Square
-      key="1-2"
-      onClick={[Function]}
-      value="X"
-    />
+    <button
+      class="square"
+    >
+      X
+    </button>
+    <button
+      class="square"
+    >
+      O
+    </button>
+    <button
+      class="square"
+    >
+      X
+    </button>
   </div>
   <div
-    className="board-row"
-    key="2"
+    class="board-row"
   >
-    <Square
-      key="2-0"
-      onClick={[Function]}
-      value="O"
-    />
-    <Square
-      key="2-1"
-      onClick={[Function]}
-      value="X"
-    />
-    <Square
-      key="2-2"
-      onClick={[Function]}
-      value="O"
-    />
+    <button
+      class="square"
+    >
+      O
+    </button>
+    <button
+      class="square"
+    >
+      X
+    </button>
+    <button
+      class="square"
+    >
+      O
+    </button>
   </div>
 </div>
 `;

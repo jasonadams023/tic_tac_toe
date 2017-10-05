@@ -7,7 +7,7 @@ describe('Game', () => {
     it ('initializes a new game', () => {
         const board = generateBoard(3);
         const game = new Game();
-        const wrapper = render ( game.render() );
+        const wrapper = render ( game );
 
         const moves = wrapper.find('.moves');
         const status = wrapper.find('#status').text();

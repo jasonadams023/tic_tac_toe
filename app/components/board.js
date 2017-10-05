@@ -1,23 +1,42 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Square from './square.js';
 
 export default class Board extends React.Component {
   renderSquare(x, y) {
+    const { store } = this.context;
+    const state = store.getState();
+    const history = state.history;
+    const current = history[state.stepNumber];
+    const squares = current.squares;
+
     return  (
                 <Square
                     key={ x + '-' + y }
-                    value={ this.props.squares[x][y] }
-                    onClick={ () => this.props.onClick(x, y) }
+                    value={ squares[x][y] }
+                    onClick={ () => this.handleClick(x, y) }
                 />
             );
   }
 
+  handleClick(x, y) {
+    const { store } = this.context;
+
+    store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
+  }
+
   render() {
+    const { store } = this.context;
+    const state = store.getState();
+    const history = state.history;
+    const current = history[state.stepNumber];
+    const squares = current.squares;
+
     return (
-        <div>
+        <div className="game-board" >
             {
-                this.props.squares.map((row, xIndex) => {
+                squares.map((row, xIndex) => {
                     return <div key={ xIndex } className="board-row">
                         {
                             row.map((space, yIndex) => {
@@ -30,4 +49,8 @@ export default class Board extends React.Component {
         </div>
     );
   }
+}
+
+Board.contextTypes = {
+    store: PropTypes.object
 }
