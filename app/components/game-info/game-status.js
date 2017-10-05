@@ -1,13 +1,18 @@
-export default function GameStatus (winner, tie, nextPlayer) {
+import React from 'react';
+
+export default function GameStatus (props) {
+    let output;
+    if (props.winner) {
+      output = "Winner is: " + props.winner;
+    } else if (props.tie) {
+      output = "Cat's Game";
+    }else {
+      output = "Next player: " + props.nextPlayer;
+    }
+
     return (
         <div id="status">
-            if (winner) {
-              "Winner is: " + { winner }
-            } else if (tie) {
-              "Cat's Game"
-            }else {
-              "Next player: " + { nextPlayer }
-            }
+            { output }
         </div>
     );
 }

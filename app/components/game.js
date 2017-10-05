@@ -7,7 +7,7 @@ import { store } from '../redux/store';
 import SubscribedComponent from '../redux/subscribedComponent';
 import GameInfo from './game-info/game-info';
 
-export default class Game extends SubscribedComponent {
+export default class Game extends React.Component {
   constructor() {
     super();
   }
@@ -51,17 +51,16 @@ export default class Game extends SubscribedComponent {
     const moves = this.getMoves(history);
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board squares={ current.squares }
-                 onClick={ (x, y) => this.handleClick(x, y) }
-          />
-        </div>
-        <div className="game-info">
-          <div id="status">{ this.status(current.squares) }</div>
-          <ol>{ moves }</ol>
-        </div>
-      </div>
+        <Provider store={ store } >
+            <div className="game">
+                <div className="game-board">
+                    <Board squares={ current.squares }
+                    onClick={ (x, y) => this.handleClick(x, y) }
+                    />
+                </div>
+                < GameInfo />
+            </div>
+        </Provider>
     );
   }
 }

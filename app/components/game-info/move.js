@@ -1,17 +1,16 @@
 import React from 'react';
 
-export default function Move(move, onClick) {
-    const description = move ? 'Move #' + move : 'Game Start';
+export default function Move(props) {
+    const description = props.move ? 'Move #' + props.move : 'Game Start';
 
     return (
         <li>
-           <a
-                href='#'
+           <button
                 className="moves"
-                onClick={ () => onClick }
+                onClick={ () => props.onClickFunction(move) }
            >
                 { description }
-           </a>
+           </button>
         </li>
     );
 }

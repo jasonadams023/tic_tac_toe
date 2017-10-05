@@ -2,36 +2,73 @@
 
 exports[`Game displays a cat's game 1`] = `
 <div
-  className="game"
+  class="game"
 >
   <div
-    className="game-board"
+    class="game-board"
   >
-    <Board
-      onClick={[Function]}
-      squares={
-        Array [
-          Array [
-            "X",
-            "O",
-            "X",
-          ],
-          Array [
-            "X",
-            "O",
-            "X",
-          ],
-          Array [
-            "O",
-            "X",
-            "O",
-          ],
-        ]
-      }
-    />
+    <div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        >
+          X
+        </button>
+        <button
+          class="square"
+        >
+          O
+        </button>
+        <button
+          class="square"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        >
+          X
+        </button>
+        <button
+          class="square"
+        >
+          O
+        </button>
+        <button
+          class="square"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        >
+          O
+        </button>
+        <button
+          class="square"
+        >
+          X
+        </button>
+        <button
+          class="square"
+        >
+          O
+        </button>
+      </div>
+    </div>
   </div>
   <div
-    className="game-info"
+    class="game-info"
   >
     <div
       id="status"
@@ -40,134 +77,74 @@ exports[`Game displays a cat's game 1`] = `
     </div>
     <ol>
       <li
-        key="0"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Game Start
-           
-        </a>
+        </button>
       </li>
       <li
-        key="1"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #1
-           
-        </a>
+        </button>
       </li>
       <li
-        key="2"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #2
-           
-        </a>
+        </button>
       </li>
       <li
-        key="3"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #3
-           
-        </a>
+        </button>
       </li>
       <li
-        key="4"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #4
-           
-        </a>
+        </button>
       </li>
       <li
-        key="5"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #5
-           
-        </a>
+        </button>
       </li>
       <li
-        key="6"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #6
-           
-        </a>
+        </button>
       </li>
       <li
-        key="7"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #7
-           
-        </a>
+        </button>
       </li>
       <li
-        key="8"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #8
-           
-        </a>
+        </button>
       </li>
       <li
-        key="9"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Move #9
-           
-        </a>
+        </button>
       </li>
     </ol>
   </div>
@@ -176,36 +153,55 @@ exports[`Game displays a cat's game 1`] = `
 
 exports[`Game displays a new game 1`] = `
 <div
-  className="game"
+  class="game"
 >
   <div
-    className="game-board"
+    class="game-board"
   >
-    <Board
-      onClick={[Function]}
-      squares={
-        Array [
-          Array [
-            null,
-            null,
-            null,
-          ],
-          Array [
-            null,
-            null,
-            null,
-          ],
-          Array [
-            null,
-            null,
-            null,
-          ],
-        ]
-      }
-    />
+    <div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+      </div>
+      <div
+        class="board-row"
+      >
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+        <button
+          class="square"
+        />
+      </div>
+    </div>
   </div>
   <div
-    className="game-info"
+    class="game-info"
   >
     <div
       id="status"
@@ -214,17 +210,11 @@ exports[`Game displays a new game 1`] = `
     </div>
     <ol>
       <li
-        key="0"
+        class="moves"
       >
-        <a
-          className="moves"
-          href="#"
-          onClick={[Function]}
-        >
-           
+        <button>
           Game Start
-           
-        </a>
+        </button>
       </li>
     </ol>
   </div>

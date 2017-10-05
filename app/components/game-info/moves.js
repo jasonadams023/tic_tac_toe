@@ -3,22 +3,30 @@ import PropTypes from 'prop-types';
 
 import Move from './moves';
 
-export default function Moves() {
-    const { store } = this.context;
+export default class Moves extends React.Component {
+    handleClick(step) {
+        const { store } = this.context;
+        store.dispatch({ type: "CHANGE_STEP", stepNumber: step });
+    }
 
-    const handleClick = (step) => { store.dispatch({ type: "CHANGE_STEP", stepNumber: step }) };
+    render() {
+        const { store } = this.context;
 
-    const moves = store.getState().history.map((step, move) => {
-       return (
-           < Move key={ move } onClick={ handleClick(move) } />
-       );
-    });
+        const moves = store.getState().history.map((step, move) => {
+            const description = move ? 'Move #' + move : 'Game Start';
+            return (
+                <li key={move} className="moves">
+                    <button onClick={() => this.handleClick(move)}>{ description }</button>
+                </li>
+           );
+        });
 
-    return (
-        <ol>{ moves }</ol>
-    );
+        return (
+            <ol>{ moves }</ol>
+        );
+    }
 }
 
-Moves.propTypes = {
+Moves.contextTypes = {
     store: PropTypes.object
 }
