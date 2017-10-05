@@ -1,31 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Square from './square.js';
+import TicTacToeTile from './tic-tac-toe-tile';
 
 export default class Board extends React.Component {
-  renderSquare(x, y) {
-    const { store } = this.context;
-    const state = store.getState();
-    const history = state.history;
-    const current = history[state.stepNumber];
-    const squares = current.squares;
-
-    return  (
-                <Square
-                    key={ x + '-' + y }
-                    value={ squares[x][y] }
-                    onClick={ () => this.handleClick(x, y) }
-                />
-            );
-  }
-
-  handleClick(x, y) {
-    const { store } = this.context;
-
-    store.dispatch({ type: "PLAYER_MOVE", x: x, y: y });
-  }
-
   render() {
     const { store } = this.context;
     const state = store.getState();
@@ -40,7 +18,13 @@ export default class Board extends React.Component {
                     return <div key={ xIndex } className="board-row">
                         {
                             row.map((space, yIndex) => {
-                                return this.renderSquare(xIndex, yIndex)
+                                const coordinates = {x: xIndex, y: yIndex};
+                                return (
+                                    < TicTacToeTile
+                                        key={ xIndex + '-' + yIndex }
+                                        coordinates={ coordinates }
+                                    />
+                                );
                             })
                         }
                     </div>
