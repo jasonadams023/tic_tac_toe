@@ -1,9 +1,11 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import Board from './board.js';
 import { calculateWinner, calculateBoardFull, generateBoard, nextPlayer } from './game-functions.js';
 import { store } from '../redux/store';
 import SubscribedComponent from '../redux/subscribedComponent';
+import GameInfo from './game-info/game-info';
 
 export default class Game extends SubscribedComponent {
   constructor() {
