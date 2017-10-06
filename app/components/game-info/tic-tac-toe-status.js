@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import GameStatus from './game-status';
 import { calculateWinner, calculateBoardFull, nextPlayer } from '../game-functions.js';
 
-export default function TicTacToeStatus (props, { store }) {
-    const state = store.getState();
+const mapStateToProps = (state) => {
     const stepNumber = state.stepNumber;
     const squares = state.history[stepNumber].squares;
 
-    const winner = calculateWinner(squares);
-    const tie = calculateBoardFull(squares);
-    const next = nextPlayer(stepNumber);
+    return {
+        winner: calculateWinner(squares),
+        tie: calculateBoardFull(squares),
+        nextPlayer: nextPlayer(stepNumber)
+    };
+};
 
-    return (
-        < GameStatus winner={ winner } tie={ tie } nextPlayer={ next } />
-    );
-}
+const TicTacToeStatus = connect( mapStateToProps )( GameStatus );
 
-TicTacToeStatus.contextTypes = {
-    store: PropTypes.object
-}
+export default TicTacToeStatus;
