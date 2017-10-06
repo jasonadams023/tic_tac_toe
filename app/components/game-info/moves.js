@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Move from './move';
 
-export default function Moves (props, { store }) {
-    const handleClick = (step) => { store.dispatch({ type: "CHANGE_STEP", stepNumber: step }); };
-
-    const moves = store.getState().history.map((step, move) => {
+function Moves ({history, handleClick}) {
+    const moves = history.map((step, move) => {
         const description = move ? 'Move #' + move : 'Game Start';
         return (
             < Move key={move} class="moves" description={ description } onClick={ () => handleClick(move) } />
@@ -18,6 +17,16 @@ export default function Moves (props, { store }) {
     );
 }
 
-Moves.contextTypes = {
-    store: PropTypes.object
-}
+const mapStateToProps = (state) => {
+    return { history: state.history };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleClick: (step) => { dispatch({ type: "CHANGE_STEP", stepNumber: step }) }
+    };
+};
+
+Moves = connect(mapStateToProps, mapDispatchToProps)(Moves);
+
+export default Moves;
