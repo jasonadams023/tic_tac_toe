@@ -4,21 +4,18 @@ import PropTypes from 'prop-types';
 import GameStatus from './game-status';
 import { calculateWinner, calculateBoardFull, nextPlayer } from '../game-functions.js';
 
-export default class TicTacToeStatus extends React.Component {
-    render() {
-        const { store } = this.context;
-        const state = store.getState();
-        const stepNumber = state.stepNumber;
-        const squares = state.history[stepNumber].squares;
+export default function TicTacToeStatus (props, { store }) {
+    const state = store.getState();
+    const stepNumber = state.stepNumber;
+    const squares = state.history[stepNumber].squares;
 
-        const winner = calculateWinner(squares);
-        const tie = calculateBoardFull(squares);
-        const next = nextPlayer(stepNumber);
+    const winner = calculateWinner(squares);
+    const tie = calculateBoardFull(squares);
+    const next = nextPlayer(stepNumber);
 
-        return (
-            < GameStatus winner={ winner } tie={ tie } nextPlayer={ next } />
-        );
-    }
+    return (
+        < GameStatus winner={ winner } tie={ tie } nextPlayer={ next } />
+    );
 }
 
 TicTacToeStatus.contextTypes = {
