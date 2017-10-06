@@ -8,7 +8,7 @@ export default function Game () {
     return (
         <Provider store={ store } >
             <div className="game">
-                <Board />
+                < Board />
                 < GameInfo />
             </div>
         </Provider>

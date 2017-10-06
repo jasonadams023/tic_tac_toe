@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Move from './moves';
+import Move from './move';
 
 export default function Moves (props, { store }) {
     const handleClick = (step) => { store.dispatch({ type: "CHANGE_STEP", stepNumber: step }); };
@@ -9,9 +9,7 @@ export default function Moves (props, { store }) {
     const moves = store.getState().history.map((step, move) => {
         const description = move ? 'Move #' + move : 'Game Start';
         return (
-            <li key={move} className="moves">
-                <button onClick={() => handleClick(move)}>{ description }</button>
-            </li>
+            < Move key={move} class="moves" description={ description } onClick={ () => handleClick(move) } />
        );
     });
 
