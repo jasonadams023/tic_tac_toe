@@ -1,28 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Square from './square';
 
-
-export default function TicTacToeTile (props, { store }) {
-    const state = store.getState();
-    const x = props.coordinates.x;
-    const y = props.coordinates.y;
+const mapStateToProps = (state, ownProps) => {
+    const x = ownProps.coordinates.x;
+    const y = ownProps.coordinates.y;
     const history = state.history;
     const current = history[state.stepNumber];
     const squares = current.squares;
     const value = squares[x][y];
 
-    const handleClick = (x, y) => { store.dispatch({ type: "PLAYER_MOVE", x: x, y: y }) };
+    return {
+        value: value
+    };
+};
 
-    return  (
-        <Square
-            value={ value }
-            onClick={ () => handleClick(x, y) }
-        />
-    );
-}
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        onClick: () => dispatch({ type: "PLAYER_MOVE", x: ownProps.coordinates.x, y: ownProps.coordinates.y })
+    };
+};
 
-TicTacToeTile.contextTypes = {
-    store: PropTypes.object
-}
+const TicTacToeTile = connect(mapStateToProps, mapDispatchToProps)(Square);
+
+export default TicTacToeTile;
