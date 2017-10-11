@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Square from './square';
+import { playerMove } from '../redux/actionCreators';
 
 const mapStateToProps = (state, ownProps) => {
     const x = ownProps.coordinates.x;
@@ -18,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onClick: () => dispatch({ type: "PLAYER_MOVE", x: ownProps.coordinates.x, y: ownProps.coordinates.y })
+        onClick: () => dispatch(playerMove(ownProps.coordinates.x, ownProps.coordinates.y))
     };
 };
 

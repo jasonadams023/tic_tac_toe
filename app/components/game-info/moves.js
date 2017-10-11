@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Move from './move';
+import { changeStep } from '../../redux/actionCreators';
 
 function Moves ({history, handleClick}) {
     const moves = history.map((step, move) => {
@@ -23,7 +24,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleClick: (step) => { dispatch({ type: "CHANGE_STEP", stepNumber: step }) }
+        handleClick: (step) => { dispatch(changeStep(step)) }
     };
 };
 
