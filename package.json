@@ -49,5 +49,8 @@
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ]
+  },
+  "engines": {
+    "node": "9.0.0"
   }
 }
