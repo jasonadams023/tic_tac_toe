@@ -9,7 +9,7 @@ module.exports = {
     entry: __dirname + '/app',
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
