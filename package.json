@@ -9,8 +9,7 @@
     "test:coverage": "jest --coverage",
     "deploy": "npm run build && npm run git-commit && npm run git-push",
     "build": "webpack",
-    "start": "node server.js",
-    "heroku-postbuild": "webpack -p"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
